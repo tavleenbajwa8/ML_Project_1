@@ -1,14 +1,13 @@
-from setuptools import setup
+from setuptools import setup,find_packages
 from typing import List
 
 
 #Declaring variables for setup functions so that we dont have to go to pip install -r requirements.txt
 
 PROJECT_NAME="housing-predictor"
-VERSION="0.0.1"
+VERSION="0.0.3"
 AUTHOR="Tavleen Bajwa"
 DESCRIPTION="Housing predictor uses regression based modelling to predict accurate house prices"
-PACKAGES=["housing"]
 REQUIREMENT_FILE_NAME="requirements.txt"
 
 
@@ -26,7 +25,7 @@ def get_requirements_list()->List[str]:
     """
     
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
-        requirement_file.readlines()   
+        requirement_file.readlines()  #.remove("-e .")  
 
 
 
@@ -35,12 +34,11 @@ name=PROJECT_NAME,
 version=VERSION,
 author=AUTHOR,
 description=DESCRIPTION,
-packages=PACKAGES,
-install_requires=get_requirements_list()  #The returned list comes to install_requires
-
+packages=find_packages(),  
+install_requires=get_requirements_list()  
 )
 
 
-
-
+#To check use: python setup.py 
+# It will install automatically install all the libraries mentioned in requirements.txt
      
