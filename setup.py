@@ -21,6 +21,8 @@ def get_requirements_list()->List[str]:
     return This function is going to return a list which will contain
     name of libraries mentioned  in requirements.txt file
     #.readlines return list[str]  
+
+    ["numpy", "pandas", "sklearn" ...]
     
     """
     
