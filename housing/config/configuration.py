@@ -35,12 +35,12 @@ class Configuration:
             
             tgz_download_dir = os.path.join(
                 data_ingestion_artifact_dir,
-                data_ingestion_info[DATA_INGESTION_RAW_DATA_DIR_KEY]
+                data_ingestion_info[DATA_INGESTION_TGZ_DOWNLOAD_DIR_KEY]
             )
 
             raw_data_dir = os.path.join(
                 data_ingestion_artifact_dir,
-                data_ingestion_info[DATA_INGESTION_INGESTED_DIR_NAME_KEY]
+                data_ingestion_info[DATA_INGESTION_RAW_DATA_DIR_KEY]
             )
 
             ingested_data_dir = os.path.join(
@@ -92,7 +92,7 @@ class Configuration:
         try:
             training_pipeline_config = self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
             artifact_dir = os.path.join(ROOT_DIR, 
-            training_pipeline_config[TRAINING_PIPELINE_CONFIG_KEY], 
+            training_pipeline_config[TRAINING_PIPELINE_NAME_KEY], 
             training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY])
         
             training_pipeline_config = TrainingPipelineConfig(artifact_dir=artifact_dir)
@@ -100,5 +100,5 @@ class Configuration:
             return training_pipeline_config
         
         except Exception as e:
-            raise HousingException(e, sys) from e 
+            raise HousingException(e,sys) from e 
 
